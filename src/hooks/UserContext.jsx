@@ -1,17 +1,14 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-
 const UserContext = createContext({});
-
 
 export const UserProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const putUserData = (userInfo) => {
         setUserInfo(userInfo);
-
         localStorage.setItem('devburger:userData', JSON.stringify(userInfo));
-
     }
 
     const logout = () => {
@@ -19,17 +16,16 @@ export const UserProvider = ({ children }) => {
         localStorage.removeItem('devburger:userData');
     }
 
-
     useEffect(() => {
         const userInfoLocalStorage = localStorage.getItem('devburger:userData');
-
         if (userInfoLocalStorage) {
             setUserInfo(JSON.parse(userInfoLocalStorage));
         }
+        setLoading(false);
     }, [])
 
     return (
-        <UserContext.Provider value={{ userInfo, putUserData, logout }}>
+        <UserContext.Provider value={{ userInfo, putUserData, logout, loading }}>
             {children}
         </UserContext.Provider>
     )
@@ -42,4 +38,3 @@ export const useUser = () => {
     }
     return context;
 }
-
