@@ -15,7 +15,8 @@ Essa aplicação permite que usuários naveguem pelas categorias de hambúrguere
 
   ## 📸 Capturas de Tela
 
-<img width="900" alt="Tela inicial do DevBurger" src="https://github.com/user-attachments/assets/32286cd7-3425-4abd-b429-8e964acff80e" />
+<img width="1472" height="704" alt="84899812-5172-4a17-8780-3b133f8c4cf7" src="https://github.com/user-attachments/assets/cf63e3db-762c-46af-a2d8-ea3fd94f60e2" />
+ 
 
 
 ## 🛠️ Tecnologias Utilizadas
