@@ -39,7 +39,7 @@ yarn dev
 
 ## 🌐 Aplicação Online
 
-- **Site:** https://cadastro-usuarios-blush.vercel.app/
+- **Site:** https://devburger-interface-green.vercel.app
 
 
 ## 📁 Estrutura de Pastas
