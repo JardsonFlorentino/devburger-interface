@@ -34,6 +34,9 @@ yarn
 yarn dev
 ```
 
+ ## 🔗 Repositório Frontend
+- **Frontend**: https://github.com/JardsonFlorentino/devburger-api
+
 ## 🌐 Aplicação Online
 
 - **Site:** https://cadastro-usuarios-blush.vercel.app/
