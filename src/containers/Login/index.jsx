@@ -45,28 +45,20 @@ export function Login() {
                 email: data.email,
                 password: data.password
             }),
-
             {
                 pending: 'Verificando credenciais...',
-                success: {
-                    render() {
-                        setTimeout(() => {
-                            if (userData?.admin) {
-                                navigate('/admin/pedidos')
-                            } else {
-                                navigate('/')
-                            }
-
-                        }, 2000)
-                        return 'Login realizado com sucesso 👌'
-                    }
-                },
+                success: 'Login realizado com sucesso 👌',
                 error: 'Email ou senha inválidos 🤯',
             }
-        )
+        );
 
-        putUserData(userData)
-    }
+        putUserData(userData);
+        if (userData?.admin) {
+            navigate('/admin/pedidos');
+        } else {
+            navigate('/');
+        }
+    };
 
 
     return (
