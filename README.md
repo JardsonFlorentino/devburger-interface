@@ -34,7 +34,7 @@ yarn
 yarn dev
 ```
 
- ## 🔗 Repositório Frontend
+ ## 🔗 Repositório Back-End
 - **Frontend**: https://github.com/JardsonFlorentino/devburger-api
 
 ## 🌐 Aplicação Online
