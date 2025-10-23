@@ -1,6 +1,6 @@
-## 📝 Projeto devburger
+## 📝 Projeto burger-db
 
-Projeto frontend da aplicação devburger, construído com React e Vite, que consome a API RESTful para exibir o cardápio, categorias, carrinho e funcionalidades de pedidos.
+Projeto frontend da aplicação burger-db, construído com React e Vite, que consome a API RESTful para exibir o cardápio, categorias, carrinho e funcionalidades de pedidos.
 
 Descrição:
 Essa aplicação permite que usuários naveguem pelas categorias de hambúrgueres, bebidas, sobremesas e mais, adicionem produtos ao carrinho e realizem pedidos. A interface é responsiva e intuitiva, utilizando styled-components para a estilização e React Router para navegação.
@@ -28,19 +28,19 @@ Essa aplicação permite que usuários naveguem pelas categorias de hambúrguere
 ## 📦 Como usar
 
 ```bash
-git clone https://github.com/JardsonFlorentino/devburger-interface
-cd devburger-interface
+git clone https://github.com/JardsonFlorentino/burger-db-interface
+cd burger-db-interface
 yarn
 yarn dev
 ```
 
 ## 🔗 Repositório Back-End
 
-- **Back-End**: <https://github.com/JardsonFlorentino/devburger-api>
+- **Back-End**: <https://github.com/JardsonFlorentino/burger-db-api>
 
 ## 🌐 Aplicação Online
 
-- **Site:** <https://devburger-interface-green.vercel.app>
+- **Site:** <https://burger-db-interface-green.vercel.app>
 
 ## 📁 Estrutura de Pastas
 
