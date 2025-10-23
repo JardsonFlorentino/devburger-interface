@@ -5,7 +5,7 @@ import { Container } from "./styles";
 
 export function AdminLayout() {
 
-    const { admin: isAdmin } = JSON.parse(localStorage.getItem('burger-db:userData'));
+    const { admin: isAdmin } = JSON.parse(localStorage.getItem('devburger:userData'));
 
     return isAdmin ? (
         <Container>

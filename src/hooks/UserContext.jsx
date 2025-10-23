@@ -8,16 +8,16 @@ export const UserProvider = ({ children }) => {
 
     const putUserData = (userInfo) => {
         setUserInfo(userInfo);
-        localStorage.setItem('burger-db:userData', JSON.stringify(userInfo));
+        localStorage.setItem('devburger:userData', JSON.stringify(userInfo));
     }
 
     const logout = () => {
         setUserInfo({});
-        localStorage.removeItem('burger-db:userData');
+        localStorage.removeItem('devburger:userData');
     }
 
     useEffect(() => {
-        const userInfoLocalStorage = localStorage.getItem('burger-db:userData');
+        const userInfoLocalStorage = localStorage.getItem('devburger:userData');
         if (userInfoLocalStorage) {
             setUserInfo(JSON.parse(userInfoLocalStorage));
         }
