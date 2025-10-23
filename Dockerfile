@@ -3,9 +3,14 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
+# Instalar dependências para native build
+RUN apk add --no-cache python3 make g++
+
 # Instala dependências
 COPY package*.json ./
-RUN npm install
+
+RUN npm cache clean --force
+RUN npm install --force
 
 # Copia o restante do projeto
 COPY . .
@@ -18,9 +23,7 @@ FROM nginx:alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expor a porta que Easypanel vai usar
-
-EXPOSE 5173
-
+# Expor porta padrão do nginx
+EXPOSE 3001
 
 CMD ["nginx", "-g", "daemon off;"]
