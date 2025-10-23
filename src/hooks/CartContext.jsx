@@ -72,11 +72,11 @@ export const CartProvider = ({ children }) => {
     }
 
     const updateLocalStorag = (products) => {
-        localStorage.setItem('devburger:cartInfo', JSON.stringify(products));
+        localStorage.setItem('burger-db:cartInfo', JSON.stringify(products));
     }
 
     useEffect(() => {
-        const clientCartData = localStorage.getItem('devburger:cartInfo');
+        const clientCartData = localStorage.getItem('burger-db:cartInfo');
         if (clientCartData) {
             setCartProducts(JSON.parse(clientCartData));
         }

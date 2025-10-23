@@ -1,5 +1,5 @@
 {
-  "name": "devburger-interface",
+  "name": "burger-db-interface",
   "private": true,
   "version": "0.0.0",
   "type": "module",
