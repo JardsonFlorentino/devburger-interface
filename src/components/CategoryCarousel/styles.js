@@ -55,19 +55,21 @@ export const ContainerItems = styled.div.withConfig({
 `
 
 
-export const CategoryButton = styled(Link)`
-    color: ${(props) => props.theme.white};
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 30px;
-    border-radius: 30px;
-    font-size: 22.5px;
-    font-weight: 500;
-    text-decoration: none;
-    margin-top: 50px;
+export const CategoryButton = styled.button`
+  color: ${(props) => props.theme.white};
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 22.5px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 50px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-    &:hover {
-        background-color: ${(props) => props.theme.purple};
-    }
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
 `
-
 

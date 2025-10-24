@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect, createContext } from "react";
+import { toast } from "react-toastify";
 
 const CartContext = createContext({});
 
@@ -12,47 +13,68 @@ export const CartProvider = ({ children }) => {
 
         if (cartIndex >= 0) {
             newProductsInCart = cartProducts;
-
             newProductsInCart[cartIndex].quantity = newProductsInCart[cartIndex].quantity + 1;
-
             setCartProducts(newProductsInCart);
+
+
+            toast.info(`Quantidade de ${product.name} atualizada!`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "light",
+            });
         } else {
             product.quantity = 1;
             newProductsInCart = [...cartProducts, product];
             setCartProducts(newProductsInCart);
 
+
+            toast.success(`${product.name} adicionado ao carrinho!`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "light",
+            });
         }
 
-        updateLocalStorag(newProductsInCart);
-
+        updateLocalStorage(newProductsInCart);
     }
-
-
-
 
     const clearCart = () => {
         setCartProducts([]);
-        updateLocalStorag([]);
-
+        updateLocalStorage([]);
     }
 
     const deleteProduct = (productId) => {
-
         const newCart = cartProducts.filter((prd) => prd.id !== productId);
-
         setCartProducts(newCart);
-        updateLocalStorag(newCart);
+        updateLocalStorage(newCart);
+
+
+        toast.error('Item removido do carrinho', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+        });
     }
 
     const increaseProduct = (productId) => {
         const newCart = cartProducts.map((prd) => {
-
             return prd.id === productId ? { ...prd, quantity: prd.quantity + 1 } : prd
         })
 
         setCartProducts(newCart);
-        updateLocalStorag(newCart);
-
+        updateLocalStorage(newCart);
     }
 
     const decreaseProduct = (productId) => {
@@ -63,20 +85,18 @@ export const CartProvider = ({ children }) => {
                 return prd.id === productId ? { ...prd, quantity: prd.quantity - 1 } : prd
             })
             setCartProducts(newCart);
-            updateLocalStorag(newCart);
-
+            updateLocalStorage(newCart);
         } else {
             deleteProduct(productId);
         }
-
     }
 
-    const updateLocalStorag = (products) => {
-        localStorage.setItem('burger-db:cartInfo', JSON.stringify(products));
+    const updateLocalStorage = (products) => {
+        localStorage.setItem('devburger:cartInfo', JSON.stringify(products));
     }
 
     useEffect(() => {
-        const clientCartData = localStorage.getItem('burger-db:cartInfo');
+        const clientCartData = localStorage.getItem('devburger:cartInfo');
         if (clientCartData) {
             setCartProducts(JSON.parse(clientCartData));
         }
@@ -86,13 +106,8 @@ export const CartProvider = ({ children }) => {
         <CartContext.Provider value={{ cartProducts, putProductInCart, clearCart, deleteProduct, increaseProduct, decreaseProduct }}>
             {children}
         </CartContext.Provider>
-
     )
-
-
-
 }
-
 
 export const useCart = () => {
     const context = useContext(CartContext);
@@ -102,5 +117,3 @@ export const useCart = () => {
     }
     return context;
 }
-
-

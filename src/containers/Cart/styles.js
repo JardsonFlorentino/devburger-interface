@@ -6,12 +6,12 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(
-    rgba(255,255,255,0.8), 
-    rgba(255,255,255,0.8)
+    rgba(255, 255, 255, 0.8), 
+    rgba(255, 255, 255, 0.8)
   ),
   url('${Background}');
   box-sizing: border-box;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 `;
 
 export const Banner = styled.div`
@@ -24,8 +24,6 @@ export const Banner = styled.div`
   justify-content: center;
   position: relative;
   height: 180px;
-  border-radius: 16px 16px 0 0;
-  margin-bottom: 6px;
 
   img {
     width: 140px;
@@ -33,15 +31,15 @@ export const Banner = styled.div`
 
   @media (max-width: 1024px) {
     height: 130px;
+    
     img {
       width: 110px;
     }
-    border-radius: 10px 10px 0 0;
   }
 
   @media (max-width: 768px) {
     height: 100px;
-    margin-bottom: 2px;
+    
     img {
       width: 80px;
     }
@@ -103,6 +101,12 @@ export const Content = styled.div`
   padding: 40px;
   box-sizing: border-box;
 
+  > * {
+    min-width: 0;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+
   @media (max-width: 1024px) {
     padding: 24px;
     gap: 24px;
@@ -110,9 +114,12 @@ export const Content = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 12px 8px;  
+    padding: 16px;
     gap: 16px;
-    box-sizing: border-box;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 8px;
   }
 `;
 
@@ -120,17 +127,24 @@ export const TableWrapper = styled.div`
   width: 100%;
   overflow-x: auto;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 
   table {
-    min-width: 600px;
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    min-width: 500px;
+    border-collapse: collapse;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     table {
-      min-width: 420px;
+      min-width: 400px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    table {
+      min-width: 320px;
+      font-size: 12px;
     }
   }
 `;
