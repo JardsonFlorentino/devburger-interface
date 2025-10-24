@@ -271,7 +271,7 @@ src/
 ## 🔗 Repositórios
 
 - **Frontend:** [devburger-interface](https://github.com/JardsonFlorentino/devburger-interface)
-- **Backend:** [burger-db-api](https://github.com/JardsonFlorentino/devburger-api)
+- **Backend:** [devburger-api](https://github.com/JardsonFlorentino/devburger-api)
 
 ---
 
