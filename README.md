@@ -321,6 +321,6 @@ Desenvolvedor Full Stack | DevClub Student
 
 **⭐ Se este projeto foi útil para você, considere dar uma estrela!**
 
-Feito com ❤️ e muito ☕ por [Jardson Florentino](https://github.com/JardsonFlorentino)
+Feito com 💪 e muito ☕ por [Jardson Florentino](https://github.com/JardsonFlorentino)
 
 </div>
