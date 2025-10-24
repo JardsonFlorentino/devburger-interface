@@ -40,7 +40,7 @@ yarn dev
 
 ## 🌐 Aplicação Online
 
-- **Site:** <https://burger-db-interface-green.vercel.app>
+- **Site:** <https://burger.jardsonflorentino.com.br/>
 
 ## 📁 Estrutura de Pastas
 
