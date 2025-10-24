@@ -29,9 +29,7 @@ Etapa 2: servidor
 
 FROM nginx:alpine
 
-🚨 Ação Crítica: Copia a configuração customizada do Nginx
-
-Isso substitui a configuração padrão do Nginx pela nossa que suporta SPA (try_files)
+Ação Crítica: Copia a configuração customizada do Nginx
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
