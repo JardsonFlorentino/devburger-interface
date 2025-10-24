@@ -1,4 +1,4 @@
-## 📝 Projeto burger-db
+## 📝 Projeto Burguer
 
 Projeto frontend da aplicação burger-db, construído com React e Vite, que consome a API RESTful para exibir o cardápio, categorias, carrinho e funcionalidades de pedidos.
 
