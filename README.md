@@ -271,7 +271,7 @@ src/
 ## 🔗 Repositórios
 
 - **Frontend:** [devburger-interface](https://github.com/JardsonFlorentino/devburger-interface)
-- **Backend:** [burger-db-api](https://github.com/JardsonFlorentino/burger-db-api)
+- **Backend:** [burger-db-api](https://github.com/JardsonFlorentino/devburger-api)
 
 ---
 
@@ -316,13 +316,6 @@ Desenvolvedor Full Stack | DevClub Student
 
 ---
 
-## 🙏 Agradecimentos
-
-- [DevClub](https://www.devclub.com.br/) pelo curso completo de Full Stack
-- Comunidade React e Node.js
-- Todos que contribuíram com feedback e sugestões
-
----
 
 <div align="center">
 
