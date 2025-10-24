@@ -5,13 +5,19 @@ import { Link as ReactLink} from "react-router-dom";
 import BackgroundLogin from '../../assets/background-login.svg'
 import Background from '../../assets/background.svg'
 
+const MOBILE_BREAKPOINT = '768px';
 
 export const Container = styled.div`
     display: flex;
     height: 100vh;
-    width: 100vw;    
+    width: 100vw; 
     
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
+        flex-direction: column; 
+        height: auto; 
+    }
 `;
+
 export const LeftContainer = styled.div`
     background: url('${BackgroundLogin}');
     background-size: cover;
@@ -27,6 +33,18 @@ export const LeftContainer = styled.div`
 
     img {
         width: 70%;
+    }
+    
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
+        display: flex;
+        height: 150px; 
+        max-width: 100%; 
+        
+        img {
+            display: block; 
+            width: 35%; 
+            max-height: 80%; 
+        }
     }
 `;
 
@@ -47,6 +65,7 @@ export const RightContainer = styled.div`
         color: ${(props) => props.theme.white};
         font-size: 18px;
         font-weight: 800;
+        margin-top: 20px; 
 
         a {
             color: ${(props) => props.theme.purple};
@@ -54,18 +73,28 @@ export const RightContainer = styled.div`
             
         }
     }
+    
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
+        max-width: 100%; 
+        padding: 30px 15px 50px 15px; 
+        justify-content: flex-start; 
+    }
 `;
 
 export const Title = styled.h2`
     font-family: "Road Rage", sans-serif;
     font-size: 40px;
     color: ${(props) => props.theme.white};
+    margin-bottom: 20px; 
 
     span {
         color: ${(props) => props.theme.purple};
         font-family: "Road Rage", sans-serif;
     }
-
+    
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
+        font-size: 30px; 
+    }
 `;
 
 export const Form = styled.form`
@@ -75,6 +104,11 @@ export const Form = styled.form`
     padding: 20px;
     width: 100%;
     max-width: 400px;
+    
+    
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
+        padding: 0; 
+    }
 `;
 
 export const InputContainer = styled.div`
@@ -88,7 +122,7 @@ export const InputContainer = styled.div`
         border: none;
         height: 52px;
         border-radius: 5px;
-        padding: 0 16px;        
+        padding: 0 16px; 
     }
 
     label { 
@@ -111,4 +145,3 @@ export const Link = styled(ReactLink)`
     color: ${(props) => props.theme.purple};
     text-decoration: none;
 `;
-
