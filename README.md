@@ -1,6 +1,6 @@
 # 🍔 DevBurger - Full Stack Application
 
-![DevBurger Banner](../public/devBurger.png)
+![DevBurger Banner](public/devBurger.png)
 
 Aplicação full stack de delivery de hambúrgueres construída com React e Node.js, hospedada na **Hetzner** utilizando **Easypanel** para orquestração de containers.
 
