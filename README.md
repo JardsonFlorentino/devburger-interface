@@ -312,7 +312,7 @@ Desenvolvedor Full Stack | DevClub Student
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/jardsonflorentino)
 - 🐙 [GitHub](https://github.com/JardsonFlorentino)
-- 📧 Email: <jardsonflorentino@egmail.com>
+- 📧 Email: <jardsonflorentino@gmail.com>
 
 ---
 
