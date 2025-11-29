@@ -53,7 +53,7 @@ export function CategoryCarousel() {
                 {categories.map((category) => (
                     <ContainerItems
                         key={category.id}
-                        imageUrl={`${apiURL}${category.path}`}
+                        imageUrl={category.url}
                     >
                         <CategoryButton
                             onClick={() => {
