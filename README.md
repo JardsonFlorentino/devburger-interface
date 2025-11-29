@@ -1,6 +1,6 @@
 # 🍔 DevBurger - Full Stack Application
 
-![DevBurger Banner](src/../public/devBurger.png)
+![DevBurger Banner](public/devBurger.png)
 
 Aplicação full stack de delivery de hambúrgueres construída com React e Node.js, hospedada na **Hetzner** utilizando **Easypanel** para orquestração de containers.
 
@@ -271,7 +271,7 @@ src/
 ## 🔗 Repositórios
 
 - **Frontend:** [devburger-interface](https://github.com/JardsonFlorentino/devburger-interface)
-- **Backend:** [burger-db-api](https://github.com/JardsonFlorentino/burger-db-api)
+- **Backend:** [devburger-api](https://github.com/JardsonFlorentino/devburger-api)
 
 ---
 
@@ -312,22 +312,15 @@ Desenvolvedor Full Stack | DevClub Student
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/jardsonflorentino)
 - 🐙 [GitHub](https://github.com/JardsonFlorentino)
-- 📧 Email: <jardsonflorentino@egmail.com>
+- 📧 Email: <jardsonflorentino@gmail.com>
 
 ---
 
-## 🙏 Agradecimentos
-
-- [DevClub](https://www.devclub.com.br/) pelo curso completo de Full Stack
-- Comunidade React e Node.js
-- Todos que contribuíram com feedback e sugestões
-
----
 
 <div align="center">
 
 **⭐ Se este projeto foi útil para você, considere dar uma estrela!**
 
-Feito com ❤️ e muito ☕ por [Jardson Florentino](https://github.com/JardsonFlorentino)
+Feito com 💪 e muito ☕ por [Jardson Florentino](https://github.com/JardsonFlorentino)
 
 </div>
