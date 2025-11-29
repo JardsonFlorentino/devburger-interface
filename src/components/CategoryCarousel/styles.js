@@ -40,10 +40,11 @@ export const Title = styled.h2`
 `
 
 export const ContainerItems = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== 'imageUrl'
+  shouldForwardProp: (prop) => prop !== 'imageUrl',
 })`
-  background: url('${(props) => props.imageUrl}') no-repeat center;
+  background-image: url(${(props) => props.imageUrl});
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px;
 
@@ -52,7 +53,8 @@ export const ContainerItems = styled.div.withConfig({
   padding: 20px 10px;
   width: 100%;
   height: 250px;
-`
+`;
+
 
 
 export const CategoryButton = styled.button`
