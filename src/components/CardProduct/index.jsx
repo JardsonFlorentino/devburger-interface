@@ -8,10 +8,12 @@ import { useCart } from "../../hooks/CartContext";
 export function CardProduct({ product }) {
 
     const { putProductInCart } = useCart();
-
+    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+        ? product.url
+        : `${import.meta.env.VITE_API_URL}${product.url}`;
     return (
         <Container>
-            <CardImage src={product.url} alt={product.name} />
+            <CardImage src={imageUrl} alt={product.name} />
             <div>
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>

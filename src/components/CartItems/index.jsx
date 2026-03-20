@@ -23,7 +23,13 @@ export function CartItems() {
                 cartProducts.map((product) => (
                     <Table.Tr key={product.id}>
                         <Table.Td>
-                            <ProductImage img src={product.url} />
+                            {(() => {
+                                const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                    ? product.url
+                                    : `${import.meta.env.VITE_API_URL}${product.url}`;
+
+                                return <ProductImage img src={imageUrl} />;
+                            })()}
                         </Table.Td>
                         <Table.Td>{product.name}</Table.Td>
                         <Table.Td>{product.currencyValue}</Table.Td>

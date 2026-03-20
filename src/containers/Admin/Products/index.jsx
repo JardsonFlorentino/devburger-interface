@@ -71,7 +71,13 @@ export function Products() {
                                 </TableCell>
                                 <TableCell align="center">{formatPrice(product.price)}</TableCell>
                                 <TableCell align="center">{isOffer(product.offer)}</TableCell>
-                                <TableCell align="center"><ProductImage src={product.url} /></TableCell>
+                                <TableCell align="center">{(() => {
+                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                        ? product.url
+                                        : `${import.meta.env.VITE_API_URL}${product.url}`;
+
+                                    return <ProductImage src={imageUrl} />;
+                                })()}</TableCell>
                                 <TableCell align="center">
                                     <EditButton onClick={() => editProduct(product)}>
                                         <Pencil />

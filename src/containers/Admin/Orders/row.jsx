@@ -95,7 +95,13 @@ export function Row({ row, setOrders, orders }) {
                                             <TableCell>{product.name}</TableCell>
                                             <TableCell>{product.category}</TableCell>
                                             <TableCell>
-                                                <ProductImage src={product.url} alt={product.name} />
+                                                {(() => {
+                                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                                        ? product.url
+                                                        : `${import.meta.env.VITE_API_URL}${product.url}`;
+
+                                                    return <ProductImage src={imageUrl} alt={product.name} />;
+                                                })()}
                                             </TableCell>
                                         </TableRow>
                                     ))}
