@@ -24,7 +24,7 @@ export function CartItems() {
                     <Table.Tr key={product.id}>
                         <Table.Td>
                             {(() => {
-                                const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:') || product.url.startsWith('/assets'))
                                     ? product.url
                                     : `${import.meta.env.VITE_API_URL}${product.url}`;
 

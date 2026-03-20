@@ -72,7 +72,7 @@ export function Products() {
                                 <TableCell align="center">{formatPrice(product.price)}</TableCell>
                                 <TableCell align="center">{isOffer(product.offer)}</TableCell>
                                 <TableCell align="center">{(() => {
-                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:') || product.url.startsWith('/assets'))
                                         ? product.url
                                         : `${import.meta.env.VITE_API_URL}${product.url}`;
 

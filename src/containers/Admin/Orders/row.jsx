@@ -96,7 +96,7 @@ export function Row({ row, setOrders, orders }) {
                                             <TableCell>{product.category}</TableCell>
                                             <TableCell>
                                                 {(() => {
-                                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:'))
+                                                    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:') || product.url.startsWith('/assets'))
                                                         ? product.url
                                                         : `${import.meta.env.VITE_API_URL}${product.url}`;
 
