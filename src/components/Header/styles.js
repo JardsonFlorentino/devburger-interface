@@ -61,6 +61,59 @@ export const Options = stelyd.div`
 
 `
 
+export const HamburgerButton = stelyd.button`
+    display: none;
+    background: transparent;
+    border: none;
+    color: ${(props) => props.theme.white};
+    padding: 8px;
+
+    @media (max-width: 768px) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+`
+
+export const MenuOverlay = stelyd.div`
+    display: ${(props) => props.open ? 'block' : 'none'};
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+`
+
+export const MobileMenu = stelyd.aside`
+    position: fixed;
+    top: 72px;
+    right: 0;
+    width: 280px;
+    height: calc(100% - 72px);
+    background: ${(props) => props.theme.mainBlack};
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transform: ${(props) => props.open ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 200ms ease-in-out;
+    z-index: 1000;
+
+    a {
+        color: ${(props) => props.theme.white};
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    hr {
+        border: 1px solid ${(props) => props.theme.darkGray};
+        width: 100%;
+    }
+
+    @media (min-width: 769px) {
+        display: none;
+    }
+`
+
 export const Profile = stelyd.div`
     display: flex;
     align-items: center;

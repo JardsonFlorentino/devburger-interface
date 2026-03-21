@@ -12,6 +12,12 @@ export function CategoryCarousel() {
 
     const apiURL = import.meta.env.VITE_API_URL;
 
+    // use fixed local images for categories (do not fetch from backend)
+    const imgEntrada = new URL('../../assets/category_1.png', import.meta.url).href;
+    const imgHamburguer = new URL('../../assets/category_2.png', import.meta.url).href;
+    const imgBebidas = new URL('../../assets/category_3.png', import.meta.url).href;
+    const imgSobremesa = new URL('../../assets/category_4.png', import.meta.url).href;
+
     useEffect(() => {
         async function loadCategories() {
             const { data } = await api.get("/categories");
@@ -50,23 +56,34 @@ export function CategoryCarousel() {
                 partialVisible={false}
                 itemClass="carousel-item"
             >
-                {categories.map((category) => (
-                    <ContainerItems
-                        key={category.id}
-                        imageUrl={category.url}
-                    >
-                        <CategoryButton
-                            onClick={() => {
-                                navigate({
-                                    pathname: "/cardapio",
-                                    search: `?categoria=${category.id}`,
-                                });
-                            }}
+                {categories.map((category) => {
+                    const raw = (category.slug || category.name || '').toString().toLowerCase();
+                    let imageSrc = '';
+
+                    if (/entrada/.test(raw)) imageSrc = imgEntrada;
+                    else if (/hamburguer|hambúrguer|hamburger|burger|hamburgers?/.test(raw)) imageSrc = imgHamburguer;
+                    else if (/bebida|bebidas|drink|drinks/.test(raw)) imageSrc = imgBebidas;
+                    else if (/sobremesa|sobremesas|dessert|desserts/.test(raw)) imageSrc = imgSobremesa;
+                    else imageSrc = imgEntrada; // default to entrada if no match
+
+                    return (
+                        <ContainerItems
+                            key={category.id}
+                            imageUrl={imageSrc}
                         >
-                            {category.name}
-                        </CategoryButton>
-                    </ContainerItems>
-                ))}
+                            <CategoryButton
+                                onClick={() => {
+                                    navigate({
+                                        pathname: "/cardapio",
+                                        search: `?categoria=${category.id}`,
+                                    });
+                                }}
+                            >
+                                {category.name}
+                            </CategoryButton>
+                        </ContainerItems>
+                    )
+                })}
             </Carousel>
         </Container>
     );

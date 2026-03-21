@@ -8,18 +8,18 @@ import { useCart } from "../../hooks/CartContext";
 export function CardProduct({ product }) {
 
     const { putProductInCart } = useCart();
-    const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:') || product.url.startsWith('/assets'))
-        ? product.url
-        : `${import.meta.env.VITE_API_URL}${product.url}`;
+    const imageUrl = product?.url
+        ? (product.url.startsWith('http') || product.url.startsWith('data:') ? product.url : `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/${product.url.replace(/^\//, '')}`)
+        : new URL('../../assets/banner-home.svg', import.meta.url).href;
     return (
         <Container>
-            <CardImage src={imageUrl} alt={product.name} />
-            <div>
+            <CardImage src={imageUrl} alt={product.name} loading="lazy" />
+            <div className="details">
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>
             </div>
 
-            <CartButton onClick={() => putProductInCart(product)} ></CartButton>
+            <CartButton onClick={() => putProductInCart(product)} aria-label={`Adicionar ${product.name} ao carrinho`} />
         </Container>
 
 

@@ -118,24 +118,21 @@ export const CategoryButton = styled(Link)`
 
 export const ProductsContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    padding: 40px;
-    justify-content: center;
-    max-width: 1280px;
-    gap: 60px;
-    margin: 50px auto 0;
-    
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: ${(props) => props.theme.spacing?.lg || 24}px;
+    padding: ${(props) => props.theme.spacing?.lg || 24}px;
+    max-width: ${(props) => props.theme.container?.maxWidth || 1280}px;
+    margin: ${(props) => (props.theme.spacing?.xl || 32) }px auto 0;
+
     @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 40px;
-        padding: 30px 20px;
+        gap: ${(props) => props.theme.spacing?.md || 16}px;
+        padding: ${(props) => props.theme.spacing?.md || 16}px;
     }
 
-   
     @media (max-width: ${MOBILE_BREAKPOINT}) {
-        grid-template-columns: 1fr; 
-        gap: 60px;
-        padding: 20px 20px 30px 20px; 
-        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: ${(props) => props.theme.spacing?.lg || 24}px;
+        padding: 20px 16px 30px 16px;
+        margin-top: 24px;
     }
 `;
