@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { Container, Navigation, HeaderLink, Options, Profile, Logout, LinkContainer, Content, HamburgerButton, MobileMenu, MenuOverlay } from "./styles"
+import { Container, Navigation, HeaderLink, Options, Profile, Logout, LinkContainer, Content, HamburgerButton, MobileMenu, MenuOverlay, CartCount } from "./styles"
 
 import { UserCircle, ShoppingCart, List } from '@phosphor-icons/react'
 import { useNavigate, useResolvedPath } from "react-router-dom"
 import { useUser } from "../../hooks/UserContext";
+import { useCart } from "../../hooks/CartContext";
 
 
 
 export default function Header() {
     const navigate = useNavigate();
     const { logout, userInfo } = useUser();
+    const { cartProducts } = useCart();
     const [open, setOpen] = useState(false);
 
     const { pathname } = useResolvedPath()
+    const cartCount = cartProducts?.reduce((sum, product) => sum + (product.quantity || 0), 0) || 0;
 
     function logoutUser() {
         logout();
@@ -42,6 +45,7 @@ export default function Header() {
                     <LinkContainer>
                         <ShoppingCart color="${(props) => props.theme.white}" size={24} />
                         <HeaderLink to="/carrinho">Carrinho</HeaderLink>
+                        {cartCount > 0 && <CartCount>{cartCount > 99 ? '99+' : cartCount}</CartCount>}
                     </LinkContainer>
 
                     <HamburgerButton aria-label="Abrir menu" onClick={() => setOpen(true)}>

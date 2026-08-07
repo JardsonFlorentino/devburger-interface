@@ -1,6 +1,7 @@
 import { Table } from '../index';
 import { useCart } from '../../hooks/CartContext';
 import { formatPrice } from '../../utils/formatPrice';
+import { getProductImageUrl } from '../../utils/getProductImageUrl';
 import { ButtonGroup, EmptyCart, ProductImage, ProductTotalPrice, TrashImage } from './styles';
 import TrashIcon from '../../assets/trash.svg';
 
@@ -23,13 +24,7 @@ export function CartItems() {
                 cartProducts.map((product) => (
                     <Table.Tr key={product.id}>
                         <Table.Td>
-                            {(() => {
-                                const imageUrl = product?.url && (product.url.startsWith('http') || product.url.startsWith('data:') || product.url.startsWith('/assets'))
-                                    ? product.url
-                                    : `${import.meta.env.VITE_API_URL}${product.url}`;
-
-                                return <ProductImage img src={imageUrl} />;
-                            })()}
+                            <ProductImage src={getProductImageUrl(product)} alt={product.name} />
                         </Table.Td>
                         <Table.Td>{product.name}</Table.Td>
                         <Table.Td>{product.currencyValue}</Table.Td>

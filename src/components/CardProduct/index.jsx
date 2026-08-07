@@ -2,24 +2,12 @@ import PropTypes from "prop-types";
 import { CardImage, Container } from "./styled";
 import { CartButton } from "../CartButton";
 import { useCart } from "../../hooks/CartContext";
+import { getProductImageUrl } from "../../utils/getProductImageUrl";
 
 export function CardProduct({ product }) {
     const { putProductInCart } = useCart();
-
-    const apiURL = import.meta.env.VITE_API_URL || 'https://apiburger.jardsonflorentino.com.br';
-
-    let imageUrl = '';
-    if (product?.url) {
-        if (product.url.startsWith('http') || product.url.startsWith('data:')) {
-            imageUrl = product.url;
-        } else {
-            imageUrl = `${apiURL.replace(/\/$/, '')}/${product.url.replace(/^\//, '')}`;
-        }
-    } else if (product?.path) {
-        imageUrl = `${apiURL.replace(/\/$/, '')}/product-file/${product.path.replace(/^\//, '')}`;
-    } else {
-        imageUrl = new URL('../../assets/banner-home.svg', import.meta.url).href;
-    }
+    const fallbackImage = new URL("../../assets/banner-home.svg", import.meta.url).href;
+    const imageUrl = getProductImageUrl(product, fallbackImage);
 
     return (
         <Container>
