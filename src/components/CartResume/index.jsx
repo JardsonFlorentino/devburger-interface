@@ -14,6 +14,7 @@ export function CartResume() {
 
     const [finalPrice, setFinalPrice] = useState(0);
     const [deliveryTax] = useState(500);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const navigate = useNavigate();
 
@@ -29,6 +30,17 @@ export function CartResume() {
 
 
     const submitOrder = async () => {
+        if (!cartProducts.length) {
+            toast.info('Adicione itens ao carrinho para continuar.');
+            return;
+        }
+
+        if (isSubmitting) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
         const products = cartProducts.map((product) => {
             return {
                 id: product.id,
@@ -45,7 +57,16 @@ export function CartResume() {
             });
 
         } catch (error) {
-            toast.error('Erro, tente novamente!', {
+            const apiErrorMessage =
+                error?.response?.data?.error ||
+                error?.response?.data?.message ||
+                error?.message;
+
+            const message = error?.code === 'ERR_NETWORK'
+                ? 'Não foi possível conectar ao serviço de pagamento. Tente novamente em instantes.'
+                : apiErrorMessage || 'Erro ao iniciar pagamento. Tente novamente!';
+
+            toast.error(message, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -56,6 +77,8 @@ export function CartResume() {
                 theme: "light",
             });
 
+        } finally {
+            setIsSubmitting(false);
         }
 
         /* try {
@@ -98,7 +121,9 @@ export function CartResume() {
                 </div>
             </Container>
 
-            <Button onClick={submitOrder}>Finalizar pedido</Button>
+            <Button onClick={submitOrder} disabled={isSubmitting}>
+                {isSubmitting ? 'Processando...' : 'Finalizar pedido'}
+            </Button>
 
         </div>
     )

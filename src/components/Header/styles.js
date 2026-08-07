@@ -140,17 +140,20 @@ export const LinkContainer = stelyd.div`
 `
 
 export const CartCount = stelyd.span`
-    min-width: 20px;
-    height: 20px;
-    padding: 0 6px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 7px;
     border-radius: 999px;
-    background: ${(props) => props.theme.darkGray};
+    background: ${(props) => props.theme.purple};
+    border: 1px solid ${(props) => props.theme.white};
     color: ${(props) => props.theme.white};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 `
 
 export const Logout = stelyd.button`
